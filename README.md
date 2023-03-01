@@ -1,14 +1,4 @@
-
-
-```{r, echo = FALSE, results='hide', message=FALSE, warning=FALSE}
-library(dplyr)
-library(stringr)
-library(ggplot2)
-library(ggthemes)
-library(treemapify)
-library(scales)
-library(knitr)
-```
+# **SEO analysis - problems with page indexing
 
 This html file contains analysis of indexing dataset. Document is divided into five parts that are listed in left corner. This file has ability to show R code by clicking on the **CODE** tab.
 
