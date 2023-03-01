@@ -1,14 +1,4 @@
----
-title: "**Index dataset analysis**"
-author: "Sobanski Wiktor"
-output:
-  html_document:
-    theme: lumen
-    toc: true
-    toc_float: true
-    code_folding: hide
 
----
 
 ```{r, echo = FALSE, results='hide', message=FALSE, warning=FALSE}
 library(dplyr)
@@ -193,6 +183,8 @@ ggplot(df1, aes(area = value, fill = status,  label = paste(status_details_group
 
 ```
 
+![treemap](https://user-images.githubusercontent.com/94312553/222275897-5ed74936-cd21-4a04-b7be-3d1ba09dd83e.png)
+
 As is visible from the graph, most of domains in given dataset have status *Excluded* which means that domain is not indexed. 68.8% of all pages are connected to this status. Three most common reasons for domain being excluded were:
 
 * *Page with redirect* - 14.09% of all pages had this status,
@@ -240,6 +232,8 @@ ggplot(aes(x = as.Date(date), y = number_of_pages, col = status))+
 
 ```
 
+![popularitypng](https://user-images.githubusercontent.com/94312553/222275891-666d6e71-fd35-4ee3-ab40-15bd3089fe99.png)
+
 Graph shows that at 11 December there was big fall in number of indexed pages. Moreover, there is some kind of 5/6-day cycle 
 visible with peak in the middle of it.    
 
@@ -277,6 +271,8 @@ ggplot(aes(x = date, y = rank, color = status_details))+
           legend.title = element_text(face = "bold", size = 12))
 ```
 
+![rankpng](https://user-images.githubusercontent.com/94312553/222275895-37431877-5ae3-42de-bbb8-3e4f5d2f9ae1.png)
+
 This graph shows all reasons for domain being excluded and which reasons were most common in every day from analyzed time 
 peroid. As it is visible from the graph, in four days the most common issue with domains that led to exclusion from indexing was tagged as *Page with redirect*. Another rather common problem was *Alternate page with proper canonical tag*. 
 
@@ -300,6 +296,8 @@ df1|> group_by(status)|>
         legend.text = element_text(size = 10),
         legend.title = element_text(face = "bold"))
 ```
+
+![boxpng](https://user-images.githubusercontent.com/94312553/222275884-e5a39c2d-cd83-4068-9a69-c65481a36868.png)
 
 As it is visible from the graph, Excluded domains have the biggest spread in number of pages. Valid domains are more 
 concentrated and these domains are rather big as far as number of pages is concerned. Domains with *error* status have small number of pages.
@@ -343,6 +341,9 @@ ggQC::stat_pareto(point.color = "#B03A2E",
         plot.subtitle = element_text(size = 14))
 ```
 
+
+![pareto](https://user-images.githubusercontent.com/94312553/222275887-e11f457b-013e-4558-b82a-726323fb48c6.png)
+
 Graph indicates that in most of the cases (55.5% percent of all errors) *redirect error* occured. Another frequent issue is *Server error* (29.37% of pages with errors has that status). Together these two types of errors stands for 84.87% of all errors, so both should be taken into consideration in further analysis.
 
 
@@ -355,9 +356,6 @@ To conclude:
 * pages associated with valid domains stands for only 20% of all pages;
 * excluded domains have greater variance than valid domains;
 * almost 85% of all errors are either redirect errors or server errors.
-
-
-
 
 
 
